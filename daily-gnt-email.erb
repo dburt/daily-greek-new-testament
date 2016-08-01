@@ -1,0 +1,33 @@
+<div lang="en">
+
+<p>Hi,</p>
+<p>Here is today's selection of verses from the Greek New Testament.</p>
+<table>
+  <tr>
+    <th>Section</th>
+    <th>Verse Content</th>
+    <th>Ref</th>
+    <th>Links</th>
+  </tr>
+  <% verses.each do |group_name, verse| %>
+    <tr>
+      <td>
+        <%= group_name %>
+      </td>
+      <td lang="el">
+        <%= verse.to_s %>
+      </td>
+      <td style="background:black; color:black">
+        <%= verse.human_ref %>
+      </td>
+      <td>
+        <a href="http://ref.ly/<%= verse.human_ref.sub(' ', '').sub(':', '.') %>;leb">English</a>
+        <a href="http://ref.ly/<%= verse.human_ref.sub(' ', '').sub(':', '.') %>;ubs5">Greek</a>
+        <a href="logosref:Bible.<%= verse.human_ref.sub(' ', '%20') %>">Logos</a>
+        <a href="logosres:ubs5;ref=Bible.<%= verse.human_ref.sub(' ', '%20') %>">Logos:Greek</a>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+</div>
