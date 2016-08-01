@@ -194,8 +194,8 @@ if $0 == __FILE__
 
   # mail = Mail.new do
   #   from 'dave@burt.id.au'
-  #   to 'ridley-daily-hebrew-bible@googlegroups.com'
-  #   subject "Ridley Daily Hebrew Bible for " + human_date
+  #   to 'ridley-daily-greek-new-testament@googlegroups.com'
+  #   subject "Ridley Daily Greek New Testament " + human_date
   #   content_type 'text/html; charset=UTF-8'
   #   body mail_body
   # end
