@@ -183,24 +183,22 @@ module DailyGreekNewTestament
 end
 
 if $0 == __FILE__
+
+  Encoding.default_external = 'utf-8'
+
   include DailyGreekNewTestament
-  verses_for_today.each do |group_name, verse|
-    puts group_name
-    puts verse
-    puts verse.human_ref
+
+  # puts mail_body
+
+  mail = Mail.new do
+    from 'dave@burt.id.au'
+    to 'ridley-daily-greek-new-testament@googlegroups.com'
+    subject "Ridley Daily Greek New Testament " + human_date
+    content_type 'text/html; charset=UTF-8'
+    body mail_body
   end
-
-  puts mail_body
-
-  # mail = Mail.new do
-  #   from 'dave@burt.id.au'
-  #   to 'ridley-daily-greek-new-testament@googlegroups.com'
-  #   subject "Ridley Daily Greek New Testament " + human_date
-  #   content_type 'text/html; charset=UTF-8'
-  #   body mail_body
-  # end
-  # mail.delivery_method :sendmail
-  # mail.deliver!
+  mail.delivery_method :sendmail
+  mail.deliver!
 
 end
 
