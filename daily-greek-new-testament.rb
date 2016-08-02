@@ -14,14 +14,14 @@ module DailyGreekNewTestament
   BOOKS_IN_ORDER = %w[
     Mt Mk Lk Jn Ac
     Ro 1Co 2Co Ga Eph Php Col 1Th 2Th 1Ti 2Ti Tit Phm
-    Heb Jas 1Pe 2Pe 1Jn 2Jn 3Jn Jud Rev
+    Heb Jas 1Pe 2Pe 1Jn 2Jn 3Jn Jud Re
   ]
 
   BOOK_GROUPS = {
     "Luke and Paul" => %w[ Lk Ac Ro 1Co 2Co Ga Eph Php Col 1Th 2Th 1Ti 2Ti Tit Phm ],
     "Matthew and James" => %w[ Mt Heb Jas ],
     "Mark and Peter" => %w[ Mk 1Pe 2Pe Jud ],
-    "John" => %w[ Jn 1Jn 2Jn 3Jn Rev ],
+    "John" => %w[ Jn 1Jn 2Jn 3Jn Re ],
   }
 
   SERIAL_VERSE_START = Date.new(2016, 8, 1)
@@ -65,7 +65,7 @@ module DailyGreekNewTestament
   end
 
   def human_date
-    # + 1 for Australia
+    # + 1 for Australia from USA
     (Date.today + 1).strftime("%d %b %Y")
   end
 
@@ -189,6 +189,7 @@ if $0 == __FILE__
   include DailyGreekNewTestament
 
   # puts mail_body
+  # exit
 
   mail = Mail.new do
     from 'dave@burt.id.au'
