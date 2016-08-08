@@ -17,6 +17,14 @@ module DailyGreekNewTestament
     Heb Jas 1Pe 2Pe 1Jn 2Jn 3Jn Jud Re
   ]
 
+  BOOKS_IN_ORDER_BIBLEHUB = %w[
+    matthew mark luke john acts
+    romans 1_corinthians 2_corinthians galatians ephesians philippians
+      colossians 1_thessalonians 2_thessalonians 1_timothy 2_timothy titus
+      philemon
+    hebrews james 1_peter 2_peter 1_john 2_john 3_john jude revelation
+  ]
+
   BOOK_GROUPS = {
     "Luke and Paul" => %w[ Lk Ac Ro 1Co 2Co Ga Eph Php Col 1Th 2Th 1Ti 2Ti Tit Phm ],
     "Matthew and James" => %w[ Mt Heb Jas ],
@@ -167,6 +175,14 @@ module DailyGreekNewTestament
       "#{bk} #{ch}:#{v}"
     end
 
+    def biblehub_url(prefix="")
+      "http://biblehub.com/#{prefix}/#{BOOKS_IN_ORDER_BIBLEHUB[passage[0, 2].to_i - 1]}/#{ch}-#{v}.htm"
+    end
+
+    def refly_url(bible)
+      "http://ref.ly/#{bk}#{ch}.#{v};#{bible}"
+    end
+
     def bk
       BOOKS_IN_ORDER[passage[0, 2].to_i - 1]
     end
@@ -184,7 +200,8 @@ end
 
 if $0 == __FILE__
 
-  Encoding.default_external = 'utf-8'
+  Encoding.default_external = 'utf-8' \
+    rescue STDERR.puts("warning: couldn't set default external encoding")
 
   include DailyGreekNewTestament
 
