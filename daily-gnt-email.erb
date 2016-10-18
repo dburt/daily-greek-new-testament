@@ -1,34 +1,50 @@
-<div lang="en">
+<html>
+<head>
 <meta name="format-detection" content="date=no"><!-- there are no dates in this email to link to calendars, and verse refs are not times -->
+<style>
+/* thanks removebluelinks.com */
+a[x-apple-data-detectors] {
+  color: inherit !important;
+  text-decoration: none !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+}
+a, a:link, a:visited, a:hover, a:active {
+  color: #66f;
+}
+* { font-family: serif; }
+</style>
+</head>
+<body>
+
+<div lang="en">
 
 <p>Hi,</p>
 <p>Here is today's selection of verses from the Greek New Testament.</p>
-<table>
-  <tr>
-    <th>Section</th>
-    <th>Verse Content</th>
-    <th>Ref</th>
-    <th>Links</th>
-  </tr>
-  <% verses.each do |group_name, verse| %>
-    <tr>
-      <td>
-        <%= group_name %>
-      </td>
-      <td lang="el" style='font-family: SBL BibLit, SBL Greek, Constantia, Cambria, serif; font-size: 12pt'>
-        <%= verse.to_s %>
-      </td>
-      <td style="background:black; color:black">
-        <%= verse.human_ref %>
-      </td>
-      <td>
-        <a href="<%= verse.refly_url("sblgnt") %>">Greek</a>
-        <a href="<%= verse.biblehub_url("text") %>">Parsed</a>
-        <a href="<%= verse.biblehub_url("interlinear") %>">Interlinear</a>
-        <a href="<%= verse.biblehub_url %>">English</a>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<% verses.each do |group_name, verse| %>
+  <h2 style="color: #999">
+    <%= group_name %>
+  </h2>
+  <p lang="el" style='font-family: SBL BibLit, SBL Greek, Constantia, Cambria, serif; font-size: 12pt'>
+    <%= verse.to_s %>
+  </p>
+  <p style="color: #999">
+    Ref:
+    <span style="background:#999; color:#999; min-width: 10ex;">
+      <%= verse.human_ref %>
+    </span>
+    &nbsp;
+    <span>
+      <a href="<%= verse.refly_url("sblgnt") %>">Greek</a>
+      <a href="<%= verse.biblehub_url("text") %>">Parsed</a>
+      <a href="<%= verse.biblehub_url("interlinear") %>">Interlinear</a>
+      <a href="<%= verse.biblehub_url %>">English</a>
+    </span>
+  </p>
+<% end %>
 
 </div>
+</body>
+</html>
