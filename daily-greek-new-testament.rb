@@ -32,7 +32,7 @@ module DailyGreekNewTestament
     "John" => %w[ Jn 1Jn 2Jn 3Jn Re ],
   }
 
-  SERIAL_VERSE_START = Date.new(2016, 8, 1)
+  SERIAL_VERSE_START = Date.new(2016, 10, 18)
   SERIAL_BOOKS = %w[ 1Jn 2Jn 3Jn Jn Mk ]
 
   def books
