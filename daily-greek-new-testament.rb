@@ -52,7 +52,8 @@ module DailyGreekNewTestament
   end
 
   def serial_verse_for_today
-    verses_from_book_names(SERIAL_BOOKS)[day_number]
+    serial_verses = verses_from_book_names(SERIAL_BOOKS)
+    serial_verses[day_number % serial_verses.count]
   end
 
   def random_verse_from_books(book_names)
